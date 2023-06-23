@@ -924,8 +924,17 @@ function validateFormFields() {
     messageContainer.style.color = 'white';
   }
 
+  // Hide the messages after 5 seconds
+  setTimeout(() => {
+    messageContainer.textContent = '';
+    messageContainer.classList.remove('success', 'error');
+    messageContainer.style.backgroundColor = '';
+    messageContainer.style.color = '';
+  }, 5000);
+
   return isValid;
 }
+
 
       </script>
 
