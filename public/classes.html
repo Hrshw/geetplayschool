@@ -47,7 +47,7 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="index.html" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <img src="img/GEETPLAY-logo.png" alt="" width="200" height="150">
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -55,23 +55,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="classes.html" class="nav-item nav-link active">Classes</a>
+                    <a href="/" class="nav-item nav-link">Home</a>
+                    <a href="/about" class="nav-item nav-link">About Us</a>
+                    <a href="/classes" class="nav-item nav-link active">Classes</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="facility.html" class="dropdown-item">School Facilities</a>
-                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
-                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
-                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="/facility" class="dropdown-item">School Facilities</a>
+                            <a href="/team" class="dropdown-item">Popular Teachers</a>
+                            <!-- <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a> -->
+                            <a href="/appointment" class="dropdown-item">Make Appointment</a>
+                            <a href="/testimonial" class="dropdown-item">Testimonial</a>
+                            <a href="/404" class="dropdown-item">404 Error</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
                 </div>
-            </div>
+              </div>
         </nav>
         <!-- Navbar End -->
 
@@ -107,38 +107,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-1.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
-                                <!-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                            <div class="ms-3">
-                                                <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                                <small>Teacher</small>
-                                            </div>
-                                        </div>
-                                        <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                    </div> -->
-                                <!-- <div class="row g-1">
-                                        <div class="col-4">
-                                            <div class="border-top border-3 border-primary pt-2">
-                                                <h6 class="text-primary mb-1">Age:</h6>
-                                                <small>3-5 Years</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="border-top border-3 border-success pt-2">
-                                                <h6 class="text-success mb-1">Time:</h6>
-                                                <small>9-10 AM</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="border-top border-3 border-warning pt-2">
-                                                <h6 class="text-warning mb-1">Capacity:</h6>
-                                                <small>30 Kids</small>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                            <div id="class-link1" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a  class="d-block text-center h3 mt-3 mb-4" href="#">Art & Drawing</a>
+                                <p id="class-info1"></p>
                             </div>
                         </div>
                     </div>
@@ -147,8 +118,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-2.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Color Management</a>
+                            <div id="class-link-2" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Color Management</a>
+                                <p id="class-info-2" ></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -187,8 +159,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-3.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Dance Practice </a>
+                            <div id="class-link-3" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Dance Practice </a>
+                                <p id="class-info-3"></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -227,8 +200,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-4.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Language</a>
+                            <div id="class-link-4" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Language</a>
+                                <p id="class-info-4"></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -267,8 +241,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-5.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Cursive Handwriting</a>
+                            <div id="class-link-5" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Cursive Handwriting</a>
+                                <p id="class-info-5"></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -308,8 +283,9 @@
                                 <img class="img-fluid rounded-circle" src="img/3d-cartoon-background-children.jpg"
                                     alt="" width="300px">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Poem & Rhyme</a>
+                            <div id="class-link-6" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Poem & Rhyme</a>
+                                <p id="class-info-6"></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -349,9 +325,9 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle" src="img/classes-6.jpg" alt="">
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Number System
-                                </a>
+                            <div id="class-link-7" class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="#">Number System </a>
+                                <p id="class-info-7"></p>
                                 <!-- <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
@@ -616,6 +592,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="js/classesshow.js"></script>
+
 </body>
 
 </html>
