@@ -13,7 +13,7 @@ const publicPath = path.join(__dirname, 'public');
 
 app.use(express.static(publicPath));
 
-
+route(app); // Pass the app instance to the route module
 
 app.get('*', (req, res) => {
   let filePath = path.join(publicPath, req.path);
@@ -31,8 +31,6 @@ app.get('*', (req, res) => {
   });
 });
 
-
-
 app.listen(port, () => {
-    console.log(`server started on port: ${port}`)
-})
+  console.log(`server started on port: ${port}`);
+});

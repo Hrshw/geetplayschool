@@ -6,7 +6,7 @@ module.exports = (app) => {
   
     // Handle form submission
     app.post('/submit-form', sendingEmailController.submitForm);
+    app.post('/submit-form2', sendingEmailController.submitForm);
     app.post('/submit-contact-form', contactFormController.sendContactForm);
 
   };
-  

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kider - Preschool Website Template</title>
+    <title>GeetPlay- classes</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -65,13 +65,14 @@
                             <a href="/team" class="dropdown-item">Popular Teachers</a>
                             <!-- <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a> -->
                             <a href="/appointment" class="dropdown-item">Make Appointment</a>
-                            <a href="/testimonial" class="dropdown-item">Testimonial</a>
-                            <a href="/404" class="dropdown-item">404 Error</a>
+                            <!-- <a href="/testimonial" class="dropdown-item">Testimonial</a> -->
+                            <a href="/admissionform" class="dropdown-item">Take Admission</a>
                         </div>
                     </div>
                     <a href="/contact" class="nav-item nav-link">Contact Us</a>
                 </div>
               </div>
+              <a href="/admissionform" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Take Admission<i class="fa fa-arrow-right ms-3"></i></a>
         </nav>
         <!-- Navbar End -->
 
@@ -372,54 +373,58 @@
         <!-- Appointment Start -->
         <div class="container-xxl py-5">
             <div class="container">
+                <style>
+                    .error {
+                      border: 1px solid red !important;
+                    }
+                
+                    .success {
+                        border: 3px solid green !important;
+                    }
+                  </style>
                 <div class="bg-light rounded">
                     <div class="row g-0">
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Make Appointment</h1>
-                                <form>
+                                <div id="message-container" class="text-center rounded-2"></div>
+                                <form id="form2" action="/submit-form2" method="post" class="mt-2">
                                     <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname"
-                                                    placeholder="Gurdian Name">
-                                                <label for="gname">Gurdian Name</label>
-                                            </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="gname" placeholder="Guardian Name" name="gname">
+                                          <label for="gname">Guardian Name</label>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail"
-                                                    placeholder="Gurdian Email">
-                                                <label for="gmail">Gurdian Email</label>
-                                            </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="email" class="form-control border-0" id="gemail" placeholder="Guardian Email" name="gemail">
+                                          <label for="gemail">Guardian Email</label>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cname"
-                                                    placeholder="Child Name">
-                                                <label for="cname">Child Name</label>
-                                            </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="childname" placeholder="Child Name" name="childname">
+                                          <label for="childname">Child Name</label>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cage"
-                                                    placeholder="Child Age">
-                                                <label for="cage">Child Age</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0"
-                                                    placeholder="Leave a message here" id="message"
-                                                    style="height: 100px"></textarea>
-                                                <label for="message">Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
-                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="childAge" placeholder="Child Age" name="childAge">
+                                          <label for="childAge">Child Age</label>
+                                      </div>
                                     </div>
-                                </form>
+                                    <div class="col-12">
+                                      <div class="form-floating">
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px" name="message"></textarea>
+                                        <label for="message">Message</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                    </div>
+                                  </div>
+                                </form>  
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
@@ -436,7 +441,7 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
+        <!-- <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Our Clients Say!</h1>
@@ -485,7 +490,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Testimonial End -->
 
 
@@ -592,7 +597,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
+    <script src="js/validationForm.js"></script>
     <script src="js/classesshow.js"></script>
 
 </body>

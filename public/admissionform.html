@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GeetPlay- Admission Form</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="/" class="navbar-brand">
+                <img src="img/GEETPLAY-logo.png" alt="" width="200" height="150">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="/" class="nav-item nav-link">Home</a>
+                    <a href="/about" class="nav-item nav-link">About Us</a>
+                    <a href="/classes" class="nav-item nav-link">Classes</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="/facility" class="dropdown-item">School Facilities</a>
+                            <a href="/team" class="dropdown-item">Popular Teachers</a>
+                            <!-- <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a> -->
+                            <a href="/appointment" class="dropdown-item">Make Appointment</a>
+                            <!-- <a href="/testimonial" class="dropdown-item active">Testimonial</a> -->
+                            <!-- <a href="/404" class="dropdown-item">404 Error</a> -->
+                        </div>
+                    </div>
+                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
+                </div>
+              </div>
+        </nav>
+        <!-- Navbar End -->
+
+
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Admission Form</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Admission-Form</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+          <!-- admissionForm Start -->
+          <div class="container-xxl py-5">
+            <div class="container">
+                <!-- <style>
+                    .error {
+                      border: 1px solid red !important;
+                    }
+                
+                    .success {
+                        border: 3px solid green !important;
+                    }
+                  </style> -->
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4">Admission-Form</h1>
+                                <div id="message-container" class="text-center rounded-2"></div>
+                                <form id="admissionForm" class="mt-2">
+                                    <div class="row g-3">
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="studentName" placeholder="Student Name" name="studentName">
+                                          <label for="studentName">Student Name <span class="text-danger">*</span></label>
+                                          <span id="studentNameError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <select class="form-control border-0" id="gender" name="gender">
+                                            <option value="" selected disabled>Choose Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                          </select>
+                                          <label for="gender">Gender<span class="text-danger">*</span></label>
+                                          <span id="genderError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="date" class="form-control border-0" id="dob" name="dob">
+                                          <label for="dob">Date of Birth<span class="text-danger">*</span></label>
+                                          <span id="dobError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="adharNumber" placeholder="Adhar Number" name="adharNumber">
+                                          <label for="adharNumber">Adhar Number<span class="text-danger">*</span></label>
+                                          <span id="adharNumberError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="tel" class="form-control border-0" id="mobileNumber" placeholder="Mobile Number" name="mobileNumber">
+                                          <label for="mobileNumber">Mobile Number<span class="text-danger">*</span></label>
+                                          <span id="mobileNumberError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="email" class="form-control border-0" id="email" placeholder="Email" name="email">
+                                          <label for="email">Email</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="religion" placeholder="Religion" name="religion">
+                                          <label for="religion">Religion<span class="text-danger">*</span></label>
+                                          <span id="religionError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="castCategory" placeholder="Cast Category" name="castCategory">
+                                          <label for="castCategory">Cast Category<span class="text-danger">*</span></label>
+                                          <span id="castCategoryError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="nationality" placeholder="Nationality" name="nationality">
+                                          <label for="nationality">Nationality<span class="text-danger">*</span></label>
+                                          <span id="nationalityError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="bonafideState" placeholder="Bonafide State" name="bonafideState">
+                                          <label for="bonafideState">Bonafide State</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="janAadharNo" placeholder="Jan Aadhar (Family Id) No." name="janAadharNo">
+                                          <label for="janAadharNo">Jan Aadhar (Family Id) No.</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="classAdmission" placeholder="Class in Which Admission is sought" name="classAdmission">
+                                          <label for="classAdmission">Class in Which Admission is sought</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <textarea class="form-control border-0" placeholder="Name & address of the last attended School" id="lastSchool" style="height: 100px" name="lastSchool"></textarea>
+                                          <label for="lastSchool">Name & address of the last attended School</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <h4>Parents details:</h4>
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherName" placeholder="Father/Guardian Name" name="fatherName">
+                                          <label for="fatherName">Father/Guardian Name<span class="text-danger">*</span></label>
+                                          <span id="fatherNameError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherEducation" placeholder="Father/Guardian Education Qualification" name="fatherEducation">
+                                          <label for="fatherEducation">Father/Guardian Education Qualification</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="email" class="form-control border-0" id="fatherEmail" placeholder="Father/Guardian Email" name="fatherEmail">
+                                          <label for="fatherEmail">Father/Guardian Email<span class="text-danger">*</span></label>
+                                          <span id="fatherEmailError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherOccupation" placeholder="Father/Guardian Occupation" name="fatherOccupation">
+                                          <label for="fatherOccupation">Father/Guardian Occupation<span class="text-danger">*</span></label>
+                                          <span id="fatherOccupationError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherAddress" placeholder="Father/Guardian Official Address" name="fatherAddress">
+                                          <label for="fatherAddress">Father/Guardian Official Address<span class="text-danger">*</span></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherIncome" placeholder="Father/Guardian Annual Income" name="fatherIncome">
+                                          <label for="fatherIncome">Father/Guardian Annual Income</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherAdharNo" placeholder="Father/Guardian Aadhar No." name="fatherAdharNo">
+                                          <label for="fatherAdharNo">Father/Guardian Aadhar No.<span class="text-danger">*</span></label>
+                                          <span id="fatherAdharNoError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="fatherJanAadharNo" placeholder="Father/Guardian Jan Aadhar No." name="fatherJanAadharNo">
+                                          <label for="fatherJanAadharNo">Father/Guardian Jan Aadhar No.</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="tel" class="form-control border-0" id="fatherMobileNo" placeholder="Father/Guardian Mobile No." name="fatherMobileNo">
+                                          <label for="fatherMobileNo">Father/Guardian Mobile No.<span class="text-danger">*</span></label>
+                                          <span id="fatherMoblieNoError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherName" placeholder="Mother's Name" name="motherName">
+                                          <label for="motherName">Mother's Name<span class="text-danger">*</span></label>
+                                          <span id="motherNameError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherEducation" placeholder="Mother's Education Qualification" name="motherEducation">
+                                          <label for="motherEducation">Mother's Education Qualification</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="email" class="form-control border-0" id="motherEmail" placeholder="Mother's Email" name="motherEmail">
+                                          <label for="motherEmail">Mother's Email<span class="text-danger">*</span></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherOccupation" placeholder="Mother's Occupation" name="motherOccupation">
+                                          <label for="motherOccupation">Mother's Occupation<span class="text-danger">*</span></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherAddress" placeholder="Mother's Official Address" name="motherAddress">
+                                          <label for="motherAddress">Mother's Official Address<span class="text-danger">*</span></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherIncome" placeholder="Mother's Annual Income" name="motherIncome">
+                                          <label for="motherIncome">Mother's Annual Income</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherAdharNo" placeholder="Mother's Aadhar No." name="motherAdharNo">
+                                          <label for="motherAdharNo">Mother's Aadhar No.<span class="text-danger">*</span></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="motherJanAadharNo" placeholder="Mother's Jan Aadhar No." name="motherJanAadharNo">
+                                          <label for="motherJanAadharNo">Mother's Jan Aadhar No.</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="tel" class="form-control border-0" id="motherMobileNo" placeholder="Mother's Mobile No." name="motherMobileNo">
+                                          <label for="motherMobileNo">Mother's Mobile No.<span class="text-danger">*</span></label>
+                                          <span id="motherMobileNoError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="agree" name="agree">
+                                          <label class="form-check-label" for="agree">
+                                            I will give all dues on time and follow all school rules. The School has the right to take action if there is any irregularity in the school like fee and other kinds of misbehaving.<span class="text-danger">*</span>
+                                          </label>
+                                          <span id="agreeError" class="error text-danger"></span>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="classLastAttended" placeholder="Class Last Attended" name="classLastAttended">
+                                          <label for="classLastAttended">Class Last Attended</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="passingYear" placeholder="Passing Year of Last Class" name="passingYear">
+                                          <label for="passingYear">Passing Year of Last Class</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="lastSchoolAffiliated" placeholder="Last School Affiliated" name="lastSchoolAffiliated">
+                                          <label for="lastSchoolAffiliated">Last School Affiliated</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <textarea class="form-control border-0" placeholder="Any other (Please Specify)" id="otherDetails" style="height: 100px" name="otherDetails"></textarea>
+                                          <label for="otherDetails">Any other (Please Specify)</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-floating">
+                                          <input type="text" class="form-control border-0" id="lastClassMarks" placeholder="Last Class Marks" name="lastClassMarks">
+                                          <label for="lastClassMarks">Last Class Marks</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <p>Original Certificate enclosed for verification (together with a true copy each certificate):</p>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="birthCertificate" name="birthCertificate">
+                                          <label class="form-check-label" for="birthCertificate">
+                                            Birth Certificate
+                                          </label>
+                                          <input type="file" id="birthCertificateFile" name="birthCertificateFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="casteCertificate" name="casteCertificate">
+                                          <label class="form-check-label" for="casteCertificate">
+                                            Caste Certificate
+                                          </label>
+                                          <input type="file" id="casteCertificateFile" name="casteCertificateFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="adharCard" name="adharCard">
+                                          <label class="form-check-label" for="adharCard">
+                                            Adhar Card<span class="text-danger">*</span>
+                                          </label>
+                                          <span id="adharCardError" class="error text-danger"></span>
+                                          <input type="file" id="adharCardFile" name="adharCardFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="incomeCertificate" name="incomeCertificate">
+                                          <label class="form-check-label" for="incomeCertificate">
+                                            Income Certificate
+                                          </label>
+                                          <input type="file" id="incomeCertificateFile" name="incomeCertificateFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="transferCertificate" name="transferCertificate">
+                                          <label class="form-check-label" for="transferCertificate">
+                                            Transfer Certificate
+                                          </label>
+                                          <input type="file" id="transferCertificateFile" name="transferCertificateFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="otherCertificate" name="otherCertificate">
+                                          <label class="form-check-label" for="otherCertificate">
+                                            Other Certificate
+                                          </label>
+                                          <input type="file" id="otherCertificateFile" name="otherCertificateFile">
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                      </div>
+                                    </div>
+                                  </form>                                   
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="img/appointment.jpg" style="object-fit: cover;">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- admissionForm End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Guru ji P.G. Nawa-Bansali road,
+                            Chandgothi(Churu), India</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 8302092009</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>gpschandgothi@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.facebook.com/groups/freewebsitecode"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.facebook.com/groups/freewebsitecode"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.youtube.com/freewebsitecode"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.youtube.com/freewebsitecode"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Photo Gallery</h3>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Newsletter</h3>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="https://freewebsitecreate.net/">GeetPlay</a>, All
+                            Right Reserved.
+
+
+                            Designed By <a class="border-bottom" href="https://github.com/Hrshw">Hrshw</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/admissionFormvalidate.js"></script>
+</body>
+
+</html>
