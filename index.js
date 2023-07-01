@@ -3,6 +3,7 @@ const multer = require('multer');
 const app = express();
 const path = require('path');
 const route = require('./src/routers/route');
+const fs = require('fs');
 const port = process.env.PORT || 3030;
 
 // Database related code
@@ -17,13 +18,17 @@ const { sanitizeBody } = require('express-validator');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const uploadPath = path.join(__dirname, 'uploads'); // Path to the upload folder
+app.use(express.static(uploadPath));
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
 // Define the storage and file type filter for multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads'); // Change 'uploads' to your desired folder path
+    const uploadPath = path.join(__dirname, 'uploads');
+    fs.mkdirSync(uploadPath, { recursive: true }); // Create the 'uploads' directory if it doesn't exist
+    cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
