@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const admissionFormSchema = new mongoose.Schema({
-  firstName: {
+  studentName: {
     type: String,
     required: true
   },
@@ -49,89 +49,83 @@ const admissionFormSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  lastAttendedSchool: {
-    name: {
-      type: String,
-      required: false
-    },
-    address: {
-      type: String,
-      required: false
-    }
+  lastSchool: {
+    type: String,
+    required: false
   },
   parentDetails: {
     father: {
-      name: {
+      fatherName: {
         type: String,
         required: true
       },
-      educationQualification: {
+      fatherEducation: {
         type: String,
         required: false
       },
-      email: {
+      fatherEmail: {
         type: String,
         required: true
       },
-      occupation: {
+      fatherOccupation: {
         type: String,
         required: true
       },
-      officialAddress: {
+      fatherAddress: {
         type: String,
         required: true
       },
-      annualIncome: {
+      fatherIncome: {
         type: Number,
         required: false
       },
-      aadharNo: {
+      fatherAdharNo: {
         type: String,
         required: true
       },
-      janAadharNo: {
+      fatherJanAadharNo: {
         type: String,
         required: false
       },
-      mobileNo: {
+      fatherMobileNo: {
         type: String,
         required: true
       }
     },
     mother: {
-      name: {
+      motherName: {
         type: String,
         required: true
       },
-      educationQualification: {
+      motherEducation: {
         type: String,
         required: false
       },
-      email: {
+      motherEmail: {
         type: String,
         required: true
       },
-      occupation: {
+      motherOccupation: {
         type: String,
         required: true
       },
-      officialAddress: {
+      motherAddress: {
         type: String,
         required: true
       },
-      annualIncome: {
+      motherIncome: {
         type: Number,
         required: false
       },
-      aadharNo: {
+      motherAdharNo: {
         type: String,
         required: true
       },
-      janAadharNo: {
+      motherJanAadharNo: {
         type: String,
         required: false
       },
-      mobileNo: {
+      motherMobileNo: {
         type: String,
         required: true
       }
@@ -154,42 +148,32 @@ const admissionFormSchema = new mongoose.Schema({
     required: false
   },
   lastClassMarks: {
-    maximumMarks: {
-      type: Number,
-      required: false
-    },
-    marksObtained: {
-      type: Number,
-      required: false
-    },
-    grade: {
-      type: String,
-      required: false
-    }
+    type: String,
+    required: false
   },
   originalCertificates: {
-    birthCertificate: {
-      type: Boolean,
-      required: false
-    },
-    casteCertificate: {
-      type: Boolean,
-      required: false
-    },
-    adharCard: {
-      type: Boolean,
+    birthCertificateFile: {
+      type: String,
       required: true
     },
-    incomeCertificate: {
-      type: Boolean,
+    adharCardFile: {
+      type: String,
+      required: true
+    },
+    casteCertificateFile: {
+      type: String,
       required: false
     },
-    transferCertificate: {
-      type: Boolean,
+    incomeCertificateFile: {
+      type: String,
       required: false
     },
-    otherCertificate: {
-      type: Boolean,
+    transferCertificateFile: {
+      type: String,
+      required: false
+    },
+    otherCertificateFile: {
+      type: String,
       required: false
     }
   },

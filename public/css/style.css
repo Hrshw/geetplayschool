@@ -247,6 +247,10 @@ h6,
     background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
+.page-header-classes {
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/class-bg.jpg) center center no-repeat;
+    background-size: cover;
+}
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, .5);

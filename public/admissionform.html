@@ -193,8 +193,9 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <div class="form-floating">
-                                          <input type="text" class="form-control border-0" id="classAdmission" placeholder="Class in Which Admission is sought" name="classAdmission">
-                                          <label for="classAdmission">Class in Which Admission is sought</label>
+                                          <input type="text" class="form-control border-0" id="classAdmission" placeholder="Class in Which Admission is sought" name="classAdmissionSought">
+                                          <label for="classAdmission">Class in Which Admission is sought<span class="text-danger">*</span></label>
+                                          <span id="classAdmissionError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-sm-6">
@@ -235,6 +236,7 @@
                                         <div class="form-floating">
                                           <input type="text" class="form-control border-0" id="fatherAddress" placeholder="Father/Guardian Official Address" name="fatherAddress">
                                           <label for="fatherAddress">Father/Guardian Official Address<span class="text-danger">*</span></label>
+                                          <span id="fatherAddressError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -260,7 +262,7 @@
                                         <div class="form-floating">
                                           <input type="tel" class="form-control border-0" id="fatherMobileNo" placeholder="Father/Guardian Mobile No." name="fatherMobileNo">
                                           <label for="fatherMobileNo">Father/Guardian Mobile No.<span class="text-danger">*</span></label>
-                                          <span id="fatherMoblieNoError" class="error text-danger"></span>
+                                          <span id="fatherMobileNoError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -280,18 +282,21 @@
                                         <div class="form-floating">
                                           <input type="email" class="form-control border-0" id="motherEmail" placeholder="Mother's Email" name="motherEmail">
                                           <label for="motherEmail">Mother's Email<span class="text-danger">*</span></label>
+                                          <span id="motherEmailError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
                                         <div class="form-floating">
                                           <input type="text" class="form-control border-0" id="motherOccupation" placeholder="Mother's Occupation" name="motherOccupation">
                                           <label for="motherOccupation">Mother's Occupation<span class="text-danger">*</span></label>
+                                          <span id="motherOccupationError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
                                         <div class="form-floating">
                                           <input type="text" class="form-control border-0" id="motherAddress" placeholder="Mother's Official Address" name="motherAddress">
                                           <label for="motherAddress">Mother's Official Address<span class="text-danger">*</span></label>
+                                          <span id="motherAddressError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -304,6 +309,7 @@
                                         <div class="form-floating">
                                           <input type="text" class="form-control border-0" id="motherAdharNo" placeholder="Mother's Aadhar No." name="motherAdharNo">
                                           <label for="motherAdharNo">Mother's Aadhar No.<span class="text-danger">*</span></label>
+                                          <span id="motherAdharNoError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -336,7 +342,7 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <div class="form-floating">
-                                          <input type="text" class="form-control border-0" id="passingYear" placeholder="Passing Year of Last Class" name="passingYear">
+                                          <input type="text" class="form-control border-0" id="passingYear" placeholder="Passing Year of Last Class" name="passingYearLastClass">
                                           <label for="passingYear">Passing Year of Last Class</label>
                                         </div>
                                       </div>
@@ -348,7 +354,7 @@
                                       </div>
                                       <div class="col-12">
                                         <div class="form-floating">
-                                          <textarea class="form-control border-0" placeholder="Any other (Please Specify)" id="otherDetails" style="height: 100px" name="otherDetails"></textarea>
+                                          <textarea class="form-control border-0" placeholder="Any other (Please Specify)" id="otherDetails" style="height: 100px" name="otherAffiliation"></textarea>
                                           <label for="otherDetails">Any other (Please Specify)</label>
                                         </div>
                                       </div>
@@ -365,9 +371,10 @@
                                         <div class="form-check">
                                           <input class="form-check-input" type="checkbox" id="birthCertificate" name="birthCertificate">
                                           <label class="form-check-label" for="birthCertificate">
-                                            Birth Certificate
+                                            Birth Certificate<span class="text-danger">*</span>
                                           </label>
                                           <input type="file" id="birthCertificateFile" name="birthCertificateFile">
+                                          <span id="birthCertificateFileError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -385,8 +392,8 @@
                                           <label class="form-check-label" for="adharCard">
                                             Adhar Card<span class="text-danger">*</span>
                                           </label>
-                                          <span id="adharCardError" class="error text-danger"></span>
                                           <input type="file" id="adharCardFile" name="adharCardFile">
+                                          <span id="adharCardFileError" class="error text-danger"></span>
                                         </div>
                                       </div>
                                       <div class="col-12">
@@ -416,6 +423,8 @@
                                           <input type="file" id="otherCertificateFile" name="otherCertificateFile">
                                         </div>
                                       </div>
+                                      <div id="successMessage" class="text-success" style="display: none;"></div>
+                                      <div id="errorMessages" class="text-danger"></div>
                                       <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                       </div>
