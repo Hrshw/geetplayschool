@@ -35,18 +35,20 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype === 'application/pdf' ||
-    file.mimetype === 'image/png' ||
-    file.mimetype === 'image/jpeg' || // Include JPEG/JPG file type
     file.mimetype === 'image/jpg'
   ) {
     cb(null, true); // Accept the file
   } else {
-    cb(new Error('Invalid file type. Only PDF, PNG, and JPEG files are allowed.'), false);
+    cb(new Error('Invalid file type. Only PDF and jpg files are allowed.'), false);
   }
 };
 
-// Create multer upload instance
-const upload = multer({ storage, fileFilter });
+// Create multer upload instance with increased file size limit
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: {fileSize: 7 * 1024 * 1024}, // 7MB limit
+});
 
 // Form field validation rules
 const validateForm = [
