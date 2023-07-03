@@ -1,9 +1,12 @@
+require('dotenv').config({ path: './config.env' });
 const express = require('express');
 const multer = require('multer');
 const app = express();
 const path = require('path');
 const route = require('./src/routers/route');
 const fs = require('fs');
+const hbs= require('hbs');
+const sessionMiddleware = require('./src/middleware/session');
 const port = process.env.PORT || 3030;
 
 // Database related code
@@ -11,17 +14,58 @@ require('./src/DB-Connections/conn');
 
 // Import the AdmissionForm model
 const AdmissionForm = require('./src/DB-Connections/models/admissionSchema');
+// const AdminUser = require('./src/DB-Connections/models/adminUserSchema');
+
+// const admin = new AdminUser({
+//   username: 'RahulSangwan870',
+//   password: 'GPS!!@123gpsrahul',
+// });
+
+// // Generate a salt to use for hashing
+// bcrypt.genSalt(10, (err, salt) => {
+//   if (err) {
+//     console.error('Error generating salt:', err);
+//     return;
+//   }
+
+//   // Hash the password using the generated salt
+//   bcrypt.hash(admin.password, salt, (err, hash) => {
+//     if (err) {
+//       console.error('Error hashing password:', err);
+//       return;
+//     }
+
+//     // Store the hashed password in the admin object
+//     admin.password = hash;
+
+//     // Save the admin user to the database
+//     admin.save()
+//       .then(() => {
+//         console.log('Admin user created successfully');
+//       })
+//       .catch((err) => {
+//         console.error('Error creating admin user:', err);
+//       });
+//   });
+// });
 
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const { sanitizeBody } = require('express-validator');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(sessionMiddleware);
 
 const uploadPath = path.join(__dirname, 'uploads'); // Path to the upload folder
 app.use(express.static(uploadPath));
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
+// Set up Handlebars as the template engine
+app.set('view engine', 'hbs');
+
+// Define the views directory
+app.set('views', path.join(__dirname, 'src/views'));
+
 
 // Define the storage and file type filter for multer
 const storage = multer.diskStorage({

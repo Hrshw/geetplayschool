@@ -1,0 +1,121 @@
+// ----------------------------------------------
+// SideBar Style
+// ----------------------------------------------
+
+.left-sidebar {
+  width: $sidebar-width-full;
+  background-color: $white;
+  position: absolute;
+  transition: .2s ease-in;
+  height: 100%;
+  z-index: 11;
+  border-right: 1px solid rgb(229, 234, 239);
+
+  .scroll-sidebar {
+    overflow-y: auto;
+    padding: $sidebar-spacing-x;
+    height: calc(100vh - 80px);
+    border-radius: $border-radius;
+
+    .simplebar-track.simplebar-horizontal {
+      visibility: hidden !important;
+    }
+  }
+}
+
+.brand-logo {
+  min-height: $header-height;
+  padding: $sidebar-spacing-x;
+}
+
+.unlimited-access {
+  padding: 18px 22px 25px;
+  margin: 0 -5px;
+
+  .unlimited-access-img {
+    margin: -35px -5px 0 -43px;
+  }
+}
+
+.nav-small-cap {
+  margin-top: 24px;
+  color: $dark;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 12px;
+  line-height: 26px;
+  text-transform: uppercase;
+
+  .nav-small-cap-icon {
+    display: none;
+  }
+}
+
+.sidebar-nav {
+  ul {
+    .sidebar-item {
+      .sidebar-link {
+        color: $sidebar-text;
+        display: flex;
+        font-size: 14px;
+        white-space: nowrap;
+        align-items: center;
+        line-height: 25px;
+        position: relative;
+        margin: 0px 0px 2px;
+        padding: 10px;
+        border-radius: 7px;
+        gap: 15px;
+        font-weight: $font-weight-normal;
+
+        span:first-child {
+          display: flex;
+        }
+
+        .ti {
+          flex-shrink: 0;
+          font-size: 21px;
+        }
+
+        &:hover {
+          background-color: rgba($primary, 0.1);
+          color: $primary;
+
+          &.has-arrow::after {
+            border-color: $primary;
+          }
+        }
+      }
+
+      .sidebar-link.active {
+        &:hover {
+          &.has-arrow::after {
+            border-color: $white;
+          }
+        }
+      }
+
+      .link-disabled {
+        opacity: $link-disabled;
+      }
+
+      &.selected>.sidebar-link.active,
+      &.selected>.sidebar-link,
+      >.sidebar-link.active {
+        background-color: $primary;
+        color: $white;
+      }
+
+    }
+  }
+
+  .sidebar-list {
+    .sidebar-list-item {
+      padding: 8px 0;
+    }
+  }
+}
+
+.collapse.in {
+  display: block;
+}

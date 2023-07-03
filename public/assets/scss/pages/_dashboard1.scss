@@ -1,0 +1,37 @@
+// ----------------------------------------------
+// Dashboard1 Style
+// ----------------------------------------------
+
+.timeline-widget {
+    .timeline-item {
+        min-height: 70px;
+
+        .timeline-time {
+            padding: 6px 16px 6px 0;
+            min-width: 90px;
+        }
+
+        .timeline-badge-wrap {
+            .timeline-badge {
+                width: 12px;
+                height: 12px;
+                border-radius: 50px;
+                background-color: transparent;
+            }
+
+            .timeline-badge-border {
+                width: 1px;
+                height: 100%;
+                background-color: $border-color;
+            }
+        }
+
+        .timeline-desc {
+            padding: 6px 16px;
+        }
+
+        .timeline-badge.badge-primary {
+            border: 2px solid $primary;
+        }
+    }
+}
