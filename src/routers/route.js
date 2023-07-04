@@ -90,32 +90,38 @@ app.get('/api/admission-form-data', (req, res) => {
 
 
 
-  // Middleware to check if the user is authenticated
-  app.use('/dashboard', authenticateUserMiddleware);
+// Middleware to check if the user is authenticated
+app.use('/dashboard', authenticateUserMiddleware);
 
-  
 // Route for rendering the dashboard page
 app.get('/dashboard', (req, res) => {
-  // Fetch recently submitted form data
+  // Check if the user is authenticated
+  const isUserAuthenticated = req.user !== null;
+  
+  // If the user is authenticated, redirect them to the dashboard
+  if (isUserAuthenticated) {
+  // Get the recently submitted form data
   AdmissionForm.find()
-    .sort({ submittedAt: -1 }) // Sort by createdAt field in descending order to get the most recent submissions first
-    .limit(5) // Limit the number of results to 10 (you can adjust this as needed)
-    .then(forms => {
-      // Modify the forms data to include a sequential number
-      const modifiedForms = forms.map((form, index) => {
-        return { ...form._doc, number: index + 1 };
-      });
-
-      // Render the dashboard template and pass the modified forms data as data
-      res.render('dashboard', { forms: modifiedForms });
-    })
-    .catch(error => {
-      console.error('Error fetching recent submissions:', error);
-      res.render('dashboard', { error: 'An error occurred' });
-    });
-});
-
-
+  .sort({ submittedAt: -1 }) // Sort by createdAt field in descending order to get the most recent submissions first
+  .limit(5) // Limit the number of results to 10 (you can adjust this as needed)
+  .then(forms => {
+  // Modify the forms data to include a sequential number
+  const modifiedForms = forms.map((form, index) => {
+  return { ...form._doc, number: index + 1 };
+  });
+    // Render the dashboard template and pass the modified forms data as data
+    res.render('dashboard', { forms: modifiedForms });
+  })
+  .catch(error => {
+    console.error('Error fetching recent submissions:', error);
+    res.render('dashboard', { error: 'An error occurred' });
+  });
+} else {
+  // If the user is not authenticated, redirect them to the login page
+  res.redirect('/authentication-login');
+  }
+  });
+  
 
 app.get('/ui-forms', authenticateUserMiddleware, (req, res) => {
   // Fetch all Admission form data
