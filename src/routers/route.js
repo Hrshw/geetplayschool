@@ -19,41 +19,44 @@ module.exports = (app) => {
     // Render the login page template
     res.render('authentication-login');
   });
-
+  
   // POST route for handling login form submission
   app.post('/authentication-login', (req, res) => {
     const { username, password } = req.body;
-
+  
     // Find the admin user by username
     AdminUser.findOne({ username })
       .then((admin) => {
         if (!admin) {
           // Admin user not found
-          return res.render('authentication-login', { error: 'Invalid credentials' }); // Replace with the actual error handling logic
+          return res.render('authentication-login', { error: 'Invalid credentials' });
         }
-
+  
         // Compare the provided password with the hashed password in the database
         bcrypt.compare(password, admin.password)
           .then((isMatch) => {
             if (isMatch) {
               // Passwords match, create a session and store the user ID
               req.session.userId = admin._id;
+              console.log('User authenticated. Redirecting to dashboard...');
               res.redirect('/dashboard'); // Replace with the actual admin page route
             } else {
               // Passwords do not match
-              res.render('authentication-login', { error: 'Invalid credentials' }); // Replace with the actual error handling logic
+              console.log('Invalid credentials');
+              res.render('authentication-login', { error: 'Invalid credentials' });
             }
           })
           .catch((err) => {
             console.error('Error comparing passwords:', err);
-            res.render('authentication-login', { error: 'An error occurred' }); // Replace with the actual error handling logic
+            res.render('authentication-login', { error: 'An error occurred' });
           });
       })
       .catch((err) => {
         console.error('Error finding admin user:', err);
-        res.render('authentication-login', { error: 'An error occurred' }); // Replace with the actual error handling logic
+        res.render('authentication-login', { error: 'An error occurred' });
       });
   });
+  
 
 // Route for fetching admission form data
 app.get('/api/admission-form-data', (req, res) => {
