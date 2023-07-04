@@ -179,8 +179,17 @@ function validateFileUpload(fileInput, fieldId) {
     displayError(fieldId, `Please upload the ${getFieldLabel(fieldId)} file.`);
     return false;
   }
+
+  const allowedFileTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
+  const file = fileInput.files[0];
+
+  if (!allowedFileTypes.includes(file.type)) {
+    displayError(fieldId, `Invalid file type. Only PDF, jpeg and JPG files are allowed.`);
+    return false;
+  }
+
   return true;
-}
+};
 
 // Function to get the label text of a field
 function getFieldLabel(fieldId) {
@@ -232,4 +241,4 @@ async function submitForm() {
     console.error('An error occurred during form submission:', error);
     // Display error message or perform any necessary actions
   }
-}
+};

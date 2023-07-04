@@ -117,13 +117,15 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype === 'application/pdf' ||
+    file.mimetype === 'image/jpeg' ||
     file.mimetype === 'image/jpg'
   ) {
     cb(null, true); // Accept the file
   } else {
-    cb(new Error('Invalid file type. Only PDF and jpg files are allowed.'), false);
+    cb(new Error('Invalid file type. Only PDF, JPEG, and JPG files are allowed.'), false);
   }
 };
+
 
 // Create multer upload instance with increased file size limit
 const upload = multer({
@@ -229,15 +231,21 @@ app.post(
         otherAffiliation: req.body.otherAffiliation,
         lastClassMarks: req.body.lastClassMarks,
         originalCertificates: {
-          birthCertificateFile: birthCertificateFile[0].filename,
-          adharCardFile: adharCardFile[0].filename,
-          casteCertificateFile: casteCertificateFile ? casteCertificateFile[0].filename : '',
-          incomeCertificateFile: incomeCertificateFile ? incomeCertificateFile[0].filename : '',
-          transferCertificateFile: transferCertificateFile ? transferCertificateFile[0].filename : '',
-          otherCertificateFile: otherCertificateFile ? otherCertificateFile[0].filename : '',
-        },
+          birthCertificateFile: birthCertificateFile && birthCertificateFile[0] ? birthCertificateFile[0].filename : '',
+          adharCardFile: adharCardFile && adharCardFile[0] ? adharCardFile[0].filename : '',
+          casteCertificateFile: casteCertificateFile && casteCertificateFile[0] ? casteCertificateFile[0].filename : '',
+          incomeCertificateFile: incomeCertificateFile && incomeCertificateFile[0] ? incomeCertificateFile[0].filename : '',
+          transferCertificateFile: transferCertificateFile && transferCertificateFile[0] ? transferCertificateFile[0].filename : '',
+          otherCertificateFile: otherCertificateFile && otherCertificateFile[0] ? otherCertificateFile[0].filename : '',
+        }        
       });
-
+      if (!req.files || !req.files.adharCardFile || !req.files.birthCertificateFile) {
+        return res.status(400).json({
+          errors: [
+            { msg: "Adhar Card File and Birth Certificate File are required." }
+          ]
+        });
+      }
       // Save the AdmissionForm instance to the database
       const savedForm = await formData.save();
 

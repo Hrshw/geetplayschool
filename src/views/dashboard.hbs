@@ -18,7 +18,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="/dashboard" class="text-nowrap logo-img">
             <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -33,7 +33,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" href="/dashboard" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -157,9 +157,10 @@
             <li class="nav-item">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                 <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
+                <div id="notification" class="notification bg-primary rounded-circle"></div>
               </a>
             </li>
+
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -538,6 +539,56 @@
 
     // Call the fetchData function to populate the chart
     fetchData();
+
+
+    function getNewAdmissionFormSubmissions() {
+  // Assuming you have a data source or API endpoint to fetch the new admissions
+  // You'll need to replace this with your actual implementation
+
+  // Fetch the data from your data source or API
+  const newAdmissions = fetch('/api/new-admissions')
+    .then(response => response.json())
+    .then(data => data.admissions)
+    .catch(error => {
+      console.error('Error fetching new admissions:', error);
+      return [];
+    });
+
+  return newAdmissions;
+}
+// Assuming you have a function named `getNewAdmissionFormSubmissions` that retrieves the new admission form submissions
+function updateNotification() {
+  const notificationElement = document.getElementById('notification');
+  const newAdmissions = getNewAdmissionFormSubmissions(); // Call your function to get the new admission form submissions
+
+  if (newAdmissions.length > 0) {
+    notificationElement.innerText = newAdmissions.length; // Update the notification count
+
+    // Create a tooltip with the admission form details
+    let tooltipText = "New admission form is submitted with:<br/>";
+    newAdmissions.forEach(admission => {
+      tooltipText += `Student Name: ${admission.studentName}<br/>`;
+      // Add more details if needed
+    });
+
+    // Set the tooltip as a data attribute
+    notificationElement.dataset.bsToggle = 'tooltip';
+    notificationElement.dataset.bsPlacement = 'bottom';
+    notificationElement.dataset.bsHtml = 'true';
+    notificationElement.dataset.bsTitle = tooltipText;
+
+    notificationElement.style.display = 'block'; // Show the notification
+  } else {
+    notificationElement.style.display = 'none'; // Hide the notification if there are no new admissions
+  }
+
+  // Initialize the Bootstrap tooltip
+  new bootstrap.Tooltip(notificationElement);
+}
+
+// Call the `updateNotification` function whenever you want to update the notification
+updateNotification();
+
 
   </script>
 
