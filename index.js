@@ -55,6 +55,8 @@ const { sanitizeBody } = require('express-validator');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(sessionMiddleware);
+app.set('trust proxy', 1);
+
 
 // Serve static files for admission form uploads
 const admissionFormUploadPath = path.join(__dirname, 'uploads');
