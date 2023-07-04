@@ -40,26 +40,7 @@
                 <span class="hide-menu">Dashboard</span>
               </a>
             </li>
-            {{!-- <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                <span class="hide-menu">Buttons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-alert-circle"></i>
-                </span>
-                <span class="hide-menu">Alerts</span>
-              </a>
-            </li> --}}
+           
             <li class="sidebar-item">
               <a class="sidebar-link" href="/ui-card" aria-expanded="false">
                 <span>
@@ -76,67 +57,7 @@
                 <span class="hide-menu">Forms</span>
               </a>
             </li>
-            {{!-- <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Typography</span>
-              </a>
-            </li> --}}
-            {{!-- <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">AUTH</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-login"></i>
-                </span>
-                <span class="hide-menu">Login</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-user-plus"></i>
-                </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-mood-happy"></i>
-                </span>
-                <span class="hide-menu">Icons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-aperture"></i>
-                </span>
-                <span class="hide-menu">Sample Page</span>
-              </a>
-            </li> --}}
           </ul>
-          {{!-- <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
-            <div class="d-flex">
-              <div class="unlimited-access-title me-3">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
-                <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank"
-                  class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-              </div>
-              <div class="unlimited-access-img">
-                <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div> --}}
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -288,7 +209,7 @@
                           <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">{{this.castCategory}}</h6>
                           </td>
-                           <td class="border-bottom-0">
+                          <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">{{this.nationality}}</h6>
                           </td>
                           <td class="border-bottom-0">
@@ -312,17 +233,24 @@
                           <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">{{this.parentDetails.mother.motherName}}</p>
                           </td>
-                           <td class="border-bottom-0">
+                          <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">{{this.parentDetails.mother.motherEmail}}</p>
                           </td>
-                           <td class="border-bottom-0">
+                          <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">{{this.parentDetails.mother.motherAddress}}</p>
                           </td>
-                           <td class="border-bottom-0">
+                          <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">{{this.parentDetails.mother.motherAdharNo}}</p>
                           </td>
-                           <td class="border-bottom-0">
+                          <td class="border-bottom-0">
                             <p class="mb-0 fw-normal">{{this.parentDetails.mother.motherMobileNo}}</p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <div class="d-flex">
+                              {{!-- <a href="/ui-forms/update/{{this._id}}" class="btn btn-primary btn-sm me-2">Update</a> --}}
+                              <button class="btn btn-danger btn-sm delete-btn"
+                                data-form-id="{{this._id}}">Delete</button>
+                            </div>
                           </td>
                         </tr>
                         {{/each}}
@@ -334,7 +262,21 @@
                   </div>
                 </div>
               </div>
-
+              <!-- Delete Form Modal -->
+              <div class="modal fade" id="deleteFormModal" tabindex="-1" aria-labelledby="deleteFormModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal content -->
+                    <p>Are you sure you want to delete this form?</p>
+                    <!-- ... -->
+                    <div class="modal-footer">
+                      <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Delete</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -343,9 +285,56 @@
   </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Handle delete form button click event
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+      const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+      deleteButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const formId = btn.dataset.formId;
+          showDeleteFormModal(formId);
+        });
+      });
+
+      // Show delete form confirmation modal
+      function showDeleteFormModal(formId) {
+        const deleteFormModal = new bootstrap.Modal(document.getElementById('deleteFormModal'));
+        confirmDeleteBtn.addEventListener('click', () => {
+          deleteForm(formId);
+          deleteFormModal.hide();
+        });
+        deleteFormModal.show();
+      }
+
+      // Delete form
+      function deleteForm(formId) {
+        fetch(`/ui-forms/${formId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => {
+            if (response.ok) {
+              // Reload the page or update the UI as needed
+              location.reload();
+            } else {
+              console.error('Error deleting form');
+            }
+          })
+          .catch(error => {
+            console.error('Error deleting form:', error);
+          });
+      }
+    });
+  </script>
 </body>
 
 </html>

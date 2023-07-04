@@ -15,8 +15,10 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+        rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -35,7 +37,8 @@
 <body>
     <div class="container-xxl p-0" style="background-color: white;">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -61,33 +64,62 @@
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                             <a href="/facility" class="dropdown-item">School Facilities</a>
                             <a href="/team" class="dropdown-item">Popular Teachers</a>
-                            <!-- <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a> -->
                             <a href="/appointment" class="dropdown-item">Make Appointment</a>
-                            <!-- <a href="/testimonial" class="dropdown-item">Testimonial</a> -->
-                         <a href="/admissionform" class="dropdown-item">Take Admission</a>
+                            <a href="/admissionform" class="dropdown-item">Take Admission</a>
+                            <a href="/vlog" class="dropdown-item">Our vlog page</a>
                         </div>
                     </div>
                     <a href="/contact" class="nav-item nav-link">Contact Us</a>
+                    <a href="#" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#adminAccessModal">Admin<i class="bi bi-box-arrow-in-right"></i></a>
                 </div>
-              </div>
-              <a href="/admissionform" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Take Admission<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+            <a href="/admissionform" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Take Admission<i
+                    class="fa fa-arrow-right ms-3"></i></a>
         </nav>
         <!-- Navbar End -->
 
+
+         <!-- modal admin -->
+         <div class="modal fade" id="adminAccessModal" tabindex="-1" aria-labelledby="adminAccessModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="adminAccessModalLabel">Admin Access Only</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  This page is restricted to admin access only. Are you sure you want to proceed?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <a href="/authentication-login" class="btn btn-primary">Proceed</a>
+                </div>
+              </div>
+            </div>
+          </div>                      
+        <!-- end modal admin -->
 
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
             <div class="owl-carousel header-carousel position-relative">
                 <div class="owl-carousel-item position-relative">
                     <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: rgba(0, 0, 0, .2);">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten School For Your Child</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Ignite your child's imagination and curiosity at our vibrant and engaging Kids Play School, where learning becomes an exciting adventure!</p>
-                                    <a href="/about" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                    <a href="/classes" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten
+                                        School For Your Child</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Ignite your child's imagination and
+                                        curiosity at our vibrant and engaging Kids Play School, where learning becomes
+                                        an exciting adventure!</p>
+                                    <a href="/about"
+                                        class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
+                                        More</a>
+                                    <a href="/classes"
+                                        class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our
+                                        Classes</a>
                                 </div>
                             </div>
                         </div>
@@ -95,14 +127,22 @@
                 </div>
                 <div class="owl-carousel-item position-relative">
                     <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: rgba(0, 0, 0, .2);">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your Child</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Discover a world of joyful learning and nurturing environment for your little ones at our Kids Play School, where every day is filled with laughter, creativity, and endless possibilities.</p>
-                                    <a href="/about" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                    <a href="/classes" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future
+                                        For Your Child</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Discover a world of joyful learning
+                                        and nurturing environment for your little ones at our Kids Play School, where
+                                        every day is filled with laughter, creativity, and endless possibilities.</p>
+                                    <a href="/about"
+                                        class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
+                                        More</a>
+                                    <a href="/classes"
+                                        class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our
+                                        Classes</a>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +158,8 @@
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">School Facilities</h1>
-                    <p>"Discover the Exceptional Features of Our School: Empowering Education, Engaging Facilities, and Holistic Development"</p>
+                    <p>"Discover the Exceptional Features of Our School: Empowering Education, Engaging Facilities, and
+                        Holistic Development"</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -130,7 +171,9 @@
                             </div>
                             <div class="facility-text bg-primary">
                                 <h3 class="text-primary mb-3">School Bus</h3>
-                                <p class="mb-0">Our school provides safe and reliable transportation services with our dedicated school buses. We ensure a comfortable and secure journey for students, allowing them to commute to and from school with ease.</p>
+                                <p class="mb-0">Our school provides safe and reliable transportation services with our
+                                    dedicated school buses. We ensure a comfortable and secure journey for students,
+                                    allowing them to commute to and from school with ease.</p>
                             </div>
                         </div>
                     </div>
@@ -143,7 +186,9 @@
                             </div>
                             <div class="facility-text bg-success">
                                 <h3 class="text-success mb-3">Playground</h3>
-                                <p class="mb-0">Our expansive playground offers a vibrant space for students to engage in sports and outdoor activities. With well-maintained sports fields and play areas, we encourage physical fitness, teamwork, and the joy of play.</p>
+                                <p class="mb-0">Our expansive playground offers a vibrant space for students to engage
+                                    in sports and outdoor activities. With well-maintained sports fields and play areas,
+                                    we encourage physical fitness, teamwork, and the joy of play.</p>
                             </div>
                         </div>
                     </div>
@@ -156,7 +201,10 @@
                             </div>
                             <div class="facility-text bg-warning">
                                 <h3 class="text-warning mb-3">Smart Classes</h3>
-                                <p class="mb-0">Equipped with modern technology, our smart classrooms create an interactive learning environment. Through digital tools and multimedia resources, we enhance the educational experience, making it engaging and impactful for students.</p>
+                                <p class="mb-0">Equipped with modern technology, our smart classrooms create an
+                                    interactive learning environment. Through digital tools and multimedia resources, we
+                                    enhance the educational experience, making it engaging and impactful for students.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -169,7 +217,10 @@
                             </div>
                             <div class="facility-text bg-info">
                                 <h3 class="text-info mb-3">Computer Lab</h3>
-                                <p class="mb-0">Our well-equipped computer lab provides students with hands-on access to the latest technology. It enables them to develop essential digital skills, explore educational software, and broaden their understanding of the ever-evolving world of technology.</p>
+                                <p class="mb-0">Our well-equipped computer lab provides students with hands-on access to
+                                    the latest technology. It enables them to develop essential digital skills, explore
+                                    educational software, and broaden their understanding of the ever-evolving world of
+                                    technology.</p>
                             </div>
                         </div>
                     </div>
@@ -182,7 +233,10 @@
                             </div>
                             <div class="facility-text" style="background-color: #999;">
                                 <h3 class="mb-3" style="color: #999;">CCTV Covered</h3>
-                                <p class="mb-0">Our priority is the safety and security of our students. With round-the-clock surveillance through CCTV cameras, parents can access the feeds from their smartphones, ensuring peace of mind and active participation in their child's educational experience.</p>
+                                <p class="mb-0">Our priority is the safety and security of our students. With
+                                    round-the-clock surveillance through CCTV cameras, parents can access the feeds from
+                                    their smartphones, ensuring peace of mind and active participation in their child's
+                                    educational experience.</p>
                             </div>
                         </div>
                     </div>
@@ -195,7 +249,10 @@
                             </div>
                             <div class="facility-text" style="background-color: #FF00FF;">
                                 <h3 class="text-info mb-3">Well equipped activity room</h3>
-                                <p class="mb-0">Our activity room is designed to stimulate creativity and experiential learning. It is equipped with a wide range of materials and resources that allow students to engage in hands-on activities, arts and crafts, and collaborative projects.</p>
+                                <p class="mb-0">Our activity room is designed to stimulate creativity and experiential
+                                    learning. It is equipped with a wide range of materials and resources that allow
+                                    students to engage in hands-on activities, arts and crafts, and collaborative
+                                    projects.</p>
                             </div>
                         </div>
                     </div>
@@ -211,15 +268,19 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p style="color:#006f73;">Welcome to our playschool, where we foster the growth of young minds through a harmonious blend of education and cultural experiences.</p>
-                        <p class="mb-4" style="color:#006f73;">Our commitment to providing a holistic learning environment sets us apart. Join us on a journey where learning is filled with excitement, and each day presents new opportunities for growth.</p>
+                        <p style="color:#006f73;">Welcome to our playschool, where we foster the growth of young minds
+                            through a harmonious blend of education and cultural experiences.</p>
+                        <p class="mb-4" style="color:#006f73;">Our commitment to providing a holistic learning
+                            environment sets us apart. Join us on a journey where learning is filled with excitement,
+                            and each day presents new opportunities for growth.</p>
                         <div class="row g-4 align-items-center">
                             <div class="col-sm-6">
                                 <a class="btn btn-primary rounded-pill py-3 px-5" href="/about">Read More</a>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.png" alt="" style="width: 85px; height: 85px;">
+                                    <img class="rounded-circle flex-shrink-0" src="img/user.png" alt=""
+                                        style="width: 85px; height: 85px;">
                                     <div class="ms-3">
                                         <h6 class="text-primary mb-1">Rahul Sangwan</h6>
                                         <small>CEO & Founder</small>
@@ -279,7 +340,8 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">School Classes</h1>
                     <p>
-                        School classes for KidsPlay provide a nurturing and stimulating environment where children engage in interactive learning, develop social skills, and explore their creativity.</p>
+                        School classes for KidsPlay provide a nurturing and stimulating environment where children
+                        engage in interactive learning, develop social skills, and explore their creativity.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -485,7 +547,8 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="classes-item">
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="img/3d-cartoon-background-children.jpg" alt="" width="300px">
+                                <img class="img-fluid rounded-circle" src="img/3d-cartoon-background-children.jpg"
+                                    alt="" width="300px">
                             </div>
                             <div class="bg-light rounded p-4 pt-5 mt-n5">
                                 <a class="d-block text-center h3 mt-3 mb-4" href="/classes">Poem & Rhyme</a>
@@ -565,7 +628,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -577,62 +640,69 @@
             <div class="container">
                 <style>
                     .error {
-                      border: 1px solid red !important;
+                        border: 1px solid red !important;
                     }
-                
+
                     .success {
                         border: 3px solid green !important;
                     }
-                  </style>
+                </style>
                 <div class="bg-light rounded">
                     <div class="row g-0">
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Make Appointment</h1>
                                 <div id="message-container" class="text-center rounded-2"></div>
-                                
+
                                 <form id="myForm" class="mt-2">
                                     <div class="row g-3">
-                                      <div class="col-sm-6">
-                                        <div class="form-floating">
-                                          <input type="text" class="form-control border-0" id="gname" placeholder="Guardian Name" name="gname">
-                                          <label for="gname">Guardian Name</label>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="gname"
+                                                    placeholder="Guardian Name" name="gname">
+                                                <label for="gname">Guardian Name</label>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <div class="form-floating">
-                                          <input type="email" class="form-control border-0" id="gemail" placeholder="Guardian Email" name="gemail">
-                                          <label for="gemail">Guardian Email</label>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0" id="gemail"
+                                                    placeholder="Guardian Email" name="gemail">
+                                                <label for="gemail">Guardian Email</label>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <div class="form-floating">
-                                          <input type="text" class="form-control border-0" id="childname" placeholder="Child Name" name="childname">
-                                          <label for="childname">Child Name</label>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="childname"
+                                                    placeholder="Child Name" name="childname">
+                                                <label for="childname">Child Name</label>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <div class="form-floating">
-                                          <input type="text" class="form-control border-0" id="childAge" placeholder="Child Age" name="childAge">
-                                          <label for="childAge">Child Age</label>
-                                      </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="childAge"
+                                                    placeholder="Child Age" name="childAge">
+                                                <label for="childAge">Child Age</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control border-0"
+                                                    placeholder="Leave a message here" id="message"
+                                                    style="height: 100px" name="message"></textarea>
+                                                <label for="message">Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                        </div>
                                     </div>
-                                    <div class="col-12">
-                                      <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px" name="message"></textarea>
-                                        <label for="message">Message</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12">
-                                      <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
-                                    </div>
-                                  </div>
-                                </form>  
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                             <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="img/appointment.jpg" style="object-fit: cover;">
+                                <img class="position-absolute w-100 h-100 rounded" src="img/appointment.jpg"
+                                    style="object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -648,7 +718,9 @@
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Popular Teachers</h1>
                     <p>
-                        Embark on an educational journey with our extraordinary teachers at the kids play school, where dreams take flight and imaginations soar under their nurturing guidance. Join us in shaping young hearts and minds for a limitless world of possibilities
+                        Embark on an educational journey with our extraordinary teachers at the kids play school, where
+                        dreams take flight and imaginations soar under their nurturing guidance. Join us in shaping
+                        young hearts and minds for a limitless world of possibilities
                     </p>
                 </div>
                 <div class="row g-4">
@@ -659,9 +731,12 @@
                                 <h3>Full Name</h3>
                                 <p>Designation</p>
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -673,9 +748,12 @@
                                 <h3>Full Name</h3>
                                 <p>Designation</p>
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -687,9 +765,12 @@
                                 <h3>Full Name</h3>
                                 <p>Designation</p>
                                 <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href="https://freewebsitecreate.net/"><i
+                                            class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -754,14 +835,21 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Get In Touch</h3>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Guru ji P.G. Nawa-Bansali road, Chandgothi(Churu), India</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Guru ji P.G. Nawa-Bansali road,
+                            Chandgothi(Churu), India</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 8302092009</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>gpschandgothi@gmail.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/groups/freewebsitecode"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/groups/freewebsitecode"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/freewebsitecode"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/freewebsitecode"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.facebook.com/groups/freewebsitecode"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.facebook.com/groups/freewebsitecode"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.youtube.com/freewebsitecode"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.youtube.com/freewebsitecode"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -809,10 +897,11 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="https://freewebsitecreate.net/">GeetPlay</a>, All Right Reserved. 
-							
-							
-							Designed By <a class="border-bottom" href="https://github.com/Hrshw">Hrshw</a>
+                            &copy; <a class="border-bottom" href="https://freewebsitecreate.net/">GeetPlay</a>, All
+                            Right Reserved.
+
+
+                            Designed By <a class="border-bottom" href="https://github.com/Hrshw">Hrshw</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -844,6 +933,11 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/validationForm.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
 
 
 </body>

@@ -56,8 +56,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(sessionMiddleware);
 
-const uploadPath = path.join(__dirname, 'uploads'); // Path to the upload folder
-app.use(express.static(uploadPath));
+// Serve static files for admission form uploads
+const admissionFormUploadPath = path.join(__dirname, 'uploads');
+app.use('/uploads/admission-form', express.static(admissionFormUploadPath));
+
+// Serve static files for vlog uploads
+const vlogUploadPath = path.join(__dirname, 'uploads', 'vlog-files');
+app.use('/uploads/vlog-files', express.static(vlogUploadPath));
+
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 // Set up Handlebars as the template engine
@@ -65,6 +71,33 @@ app.set('view engine', 'hbs');
 
 // Define the views directory
 app.set('views', path.join(__dirname, 'src/views'));
+
+
+
+// Helper function to format the date
+hbs.registerHelper('formatDate', function (date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = new Date(date).toLocaleDateString('en-GB', options);
+  return formattedDate;
+});
+
+// Helper function to format the time
+hbs.registerHelper('formatTime', function (date) {
+  const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  const formattedTime = new Date(date).toLocaleTimeString('en-US', options);
+  return formattedTime;
+});
+
+// Define the checkImageType helper function
+hbs.registerHelper('checkImageType', function (media) {
+  return media.endsWith('.jpg') || media.endsWith('.jpeg') || media.endsWith('.png');
+});
+
+// Define the checkVideoType helper function
+hbs.registerHelper('checkVideoType', function (media) {
+  return media.endsWith('.mp4') || media.endsWith('.avi') || media.endsWith('.mov');
+});
+
 
 
 // Define the storage and file type filter for multer

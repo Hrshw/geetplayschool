@@ -2,8 +2,11 @@ const sendingEmailController = require('../controllers/sendingEmailContr');
 const contactFormController = require('../controllers/contactFormController');
 const AdmissionForm = require('../DB-Connections/models/admissionSchema');
 const AdminUser = require('../DB-Connections/models/adminUserSchema');
+const VlogContent = require('../DB-Connections/models/vlogContent')
 const authenticateUserMiddleware = require('../middleware/authanticateUser');
 const hbs= require('hbs');
+const path = require('path')
+const multer = require('multer');
 const bcrypt = require('bcryptjs'); // Import bcryptjs for password hashing
 
 module.exports = (app) => {
@@ -100,26 +103,13 @@ app.get('/api/admission-form-data', (req, res) => {
   // Middleware to check if the user is authenticated
   app.use('/dashboard', authenticateUserMiddleware);
 
-// Helper function to format the date
-hbs.registerHelper('formatDate', function (date) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = new Date(date).toLocaleDateString('en-GB', options);
-  return formattedDate;
-});
-
-// Helper function to format the time
-hbs.registerHelper('formatTime', function (date) {
-  const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
-  const formattedTime = new Date(date).toLocaleTimeString('en-US', options);
-  return formattedTime;
-});
   
 // Route for rendering the dashboard page
 app.get('/dashboard', (req, res) => {
   // Fetch recently submitted form data
   AdmissionForm.find()
     .sort({ submittedAt: -1 }) // Sort by createdAt field in descending order to get the most recent submissions first
-    .limit(10) // Limit the number of results to 10 (you can adjust this as needed)
+    .limit(5) // Limit the number of results to 10 (you can adjust this as needed)
     .then(forms => {
       // Modify the forms data to include a sequential number
       const modifiedForms = forms.map((form, index) => {
@@ -149,9 +139,88 @@ app.get('/ui-forms', authenticateUserMiddleware, (req, res) => {
       res.render('ui-forms', { error: 'An error occurred' });
     });
 });
+// Route for deleting a form
+app.delete('/ui-forms/:id', authenticateUserMiddleware, (req, res) => {
+  const formId = req.params.id;
+  
+  // Find the form by ID and delete it
+  AdmissionForm.findByIdAndDelete(formId)
+    .then(() => {
+      res.status(200).json({ message: 'Form deleted successfully' });
+    })
+    .catch(error => {
+      console.error('Error deleting form:', error);
+      res.status(500).json({ error: 'An error occurred while deleting the form' });
+    });
+});
 
-  app.get('/ui-card', authenticateUserMiddleware,(req, res)=>{
-      res.render('ui-card');
+// Route for updating a form
+app.put('/ui-forms/:id', authenticateUserMiddleware, (req, res) => {
+  const formId = req.params.id;
+  const updatedData = req.body;
+
+  // Find the form by ID and update it
+  AdmissionForm.findByIdAndUpdate(formId, updatedData)
+    .then(() => {
+      res.status(200).json({ message: 'Form updated successfully' });
+    })
+    .catch(error => {
+      console.error('Error updating form:', error);
+      res.status(500).json({ error: 'An error occurred while updating the form' });
+    });
+});
+
+
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/vlog-files'); // Destination folder for uploaded files
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    const filename = file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname);
+    const filePath = filename.replace(/\\/g, '/'); // Replace backslashes with forward slashes
+    cb(null, filePath);
+  }
+});
+
+const upload = multer({ storage });
+
+app.get('/vlog-management',authenticateUserMiddleware, (req, res) => {
+  res.render('vlog-management');
+});
+
+app.post('/submit-vlog', upload.single('media'), (req, res) => {
+  const { title, description } = req.body;
+  const mediaPath = req.file ? req.file.path : null;
+
+  const vlogContent = new VlogContent({
+    title,
+    description,
+    media: mediaPath
   });
+
+  vlogContent.save()
+    .then(savedVlogContent => {
+      // console.log('Vlog content saved:', savedVlogContent);
+      res.render('vlog-management', { successMessage: 'Vlog content saved successfully' });
+    })
+    .catch(error => {
+      console.error('Error saving vlog content:', error);
+      res.render('vlog-management', { errorMessage: 'Error saving vlog content' });
+    });
+});
+
+
+app.get('/vlog', (req, res) => {
+  VlogContent.find({})
+    .then((vlogContents) => {
+      res.render('vlog', { vlogContents });
+    })
+    .catch((err) => {
+      console.error('Error retrieving vlog contents:', err);
+      res.sendStatus(500);
+    });
+});
 
 };
