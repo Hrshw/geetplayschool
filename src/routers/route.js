@@ -219,8 +219,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// GET route for vlog management
-app.get('/vlog-management', authenticateUserMiddleware, async (req, res) => {
+app.get('/vlog-management', async (req, res) => {
   try {
     // Fetch vlog content from the database
     const vlog = await VlogContent.findOne().sort({ submittedAt: -1 });
@@ -247,14 +246,18 @@ app.post('/submit-vlog', upload.single('media'), (req, res) => {
 
   vlogContent.save()
     .then(savedVlogContent => {
-      // console.log('Vlog content saved:', savedVlogContent);
-      res.render('vlog-management', { successMessage: 'Vlog content saved successfully' });
+
+      // Redirect to /vlog-management after 2 seconds
+      setTimeout(() => {
+        res.redirect('/vlog-management');
+      }, 2000);
     })
     .catch(error => {
       console.error('Error saving vlog content:', error);
       res.render('vlog-management', { errorMessage: 'Error saving vlog content' });
     });
 });
+
 
 
 app.get('/vlog', (req, res) => {
