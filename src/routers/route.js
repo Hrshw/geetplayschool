@@ -219,7 +219,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get('/vlog-management', async (req, res) => {
+app.get('/vlog-management', authenticateUserMiddleware, async (req, res) => {
   try {
     // Fetch vlog content from the database
     const vlog = await VlogContent.findOne().sort({ submittedAt: -1 });
@@ -234,7 +234,7 @@ app.get('/vlog-management', async (req, res) => {
 
 
 
-app.post('/submit-vlog', upload.single('media'), (req, res) => {
+app.post('/submit-vlog', authenticateUserMiddleware, upload.single('media'), (req, res) => {
   const { title, description } = req.body;
   const mediaPath = req.file ? req.file.path : null;
 
