@@ -204,7 +204,7 @@ app.put('/ui-forms/:id', authenticateUserMiddleware, (req, res) => {
 });
 
 
-// Configure Multer for file uploads
+// Create a storage instance with desired configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/vlog-files'); // Destination folder for uploaded files
@@ -214,7 +214,8 @@ const storage = multer.diskStorage({
     const filename = file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname);
     const filePath = filename.replace(/\\/g, '/'); // Replace backslashes with forward slashes
     cb(null, filePath);
-  }
+  },
+  limits: { fileSize: 7 * 1024 * 1024 } // Set the maximum file size limit to 7MB
 });
 
 const upload = multer({ storage });
@@ -235,6 +236,12 @@ app.get('/vlog-management', authenticateUserMiddleware, async (req, res) => {
 
 
 app.post('/submit-vlog', authenticateUserMiddleware, upload.single('media'), (req, res) => {
+  // Check if file size exceeds the limit
+  if (req.file && req.file.size > 7 * 1024 * 1024) {
+    return res.render('vlog-management', { errorMessage: 'File size exceeds the limit of 7MB' });
+  }
+
+  // Handle file upload logic for files within the size limit
   const { title, description } = req.body;
   const mediaPath = req.file ? req.file.path : null;
 
@@ -246,17 +253,17 @@ app.post('/submit-vlog', authenticateUserMiddleware, upload.single('media'), (re
 
   vlogContent.save()
     .then(savedVlogContent => {
-
-      // Redirect to /vlog-management after 2 seconds
+      // Redirect to vlog-management after successful submission
       setTimeout(() => {
         res.redirect('/vlog-management');
-      }, 2000);
+      }, 3000);
     })
     .catch(error => {
       console.error('Error saving vlog content:', error);
       res.render('vlog-management', { errorMessage: 'Error saving vlog content' });
     });
 });
+
 
 
 
