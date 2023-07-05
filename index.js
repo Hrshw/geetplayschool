@@ -9,6 +9,8 @@ const hbs= require('hbs');
 const sessionMiddleware = require('./src/middleware/session');
 const port = process.env.PORT || 3030;
 
+
+
 // Database related code
 require('./src/DB-Connections/conn');
 
@@ -92,13 +94,18 @@ hbs.registerHelper('formatTime', function (date) {
 
 // Define the checkImageType helper function
 hbs.registerHelper('checkImageType', function (media) {
-  return media.endsWith('.jpg') || media.endsWith('.jpeg') || media.endsWith('.png');
+  return media && (media.endsWith('.jpg') || media.endsWith('.jpeg') || media.endsWith('.png'));
 });
 
-// Define the checkVideoType helper function
 hbs.registerHelper('checkVideoType', function (media) {
-  return media.endsWith('.mp4') || media.endsWith('.avi') || media.endsWith('.mov');
+  return media && (media.endsWith('.mp4') || media.endsWith('.avi') || media.endsWith('.mov'));
 });
+
+// Helper function to check if a string ends with a specified suffix
+hbs.registerHelper('endsWith', function (str, suffix) {
+  return str.endsWith(suffix);
+});
+
 
 
 
@@ -250,9 +257,11 @@ app.post(
       }
       // Save the AdmissionForm instance to the database
       const savedForm = await formData.save();
-
+  
       // Send a response indicating successful form submission
       res.status(200).json({ message: 'Form submitted successfully' });
+        // Emit a notification event to connected clients
+    io.emit('notification', { message: 'New form submitted' });
     } catch (error) {
       // Handle any errors that occurred during form submission
       console.error('An error occurred during form submission:', error);
@@ -260,6 +269,7 @@ app.post(
     }
   }
 );
+
 
 route(app); // Pass the app instance to the route module
 

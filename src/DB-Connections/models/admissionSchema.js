@@ -177,6 +177,10 @@ const admissionFormSchema = new mongoose.Schema({
       required: false
     }
   },
+  isSubmitted: {
+    type: Boolean,
+    default: false
+  },
   submittedAt: {
     type: Date,
     default: Date.now

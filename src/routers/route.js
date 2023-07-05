@@ -4,7 +4,6 @@ const AdmissionForm = require('../DB-Connections/models/admissionSchema');
 const AdminUser = require('../DB-Connections/models/adminUserSchema');
 const VlogContent = require('../DB-Connections/models/vlogContent')
 const authenticateUserMiddleware = require('../middleware/authanticateUser');
-const hbs= require('hbs');
 const path = require('path')
 const multer = require('multer');
 const bcrypt = require('bcryptjs'); // Import bcryptjs for password hashing
@@ -87,7 +86,45 @@ app.get('/api/admission-form-data', (req, res) => {
       res.status(500).json({ error: 'An error occurred' });
     });
 });
+// // Route for fetching new admission form submissions
+// app.get('/api/new-admissions', (req, res) => {
+//   // Fetch new admission form submissions from the database or any other data source based on the reference timestamp
+//   AdmissionForm.find({ isNew: true })
+//   .then(admissions => {
+//     const formattedAdmissions = admissions.map(admission => {
+//       const formattedDate = admission.submittedAt.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+//       const formattedTime = admission.submittedAt.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' });
+//       return {
+//         ...admission.toObject(),
+//         submittedAt: {
+//           date: formattedDate,
+//           time: formattedTime
+//         }
+//       };
+//     });
+//     res.json({ admissions: formattedAdmissions });
+//   })
+//   .catch(error => {
+//     console.error('Error fetching new admissions:', error);
+//     res.status(500).json({ error: 'An error occurred' });
+//   });
+// });
 
+// Route to fetch the notification count
+app.get('/get-notification-count', async (req, res) => {
+  try {
+    // Fetch the notification count from the database or any other data source
+    // For example, you can query the AdmissionForm collection
+    const notificationCount = await AdmissionForm.countDocuments();
+    
+    // Send the notification count as a response
+    res.status(200).json({ count: notificationCount });
+  } catch (error) {
+    // Handle any errors that occurred during the count retrieval
+    console.error('An error occurred while fetching notification count:', error);
+    res.status(500).json({ error: 'Failed to fetch notification count' });
+  }
+});
 
 
 // Middleware to check if the user is authenticated
@@ -182,9 +219,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get('/vlog-management',authenticateUserMiddleware, (req, res) => {
-  res.render('vlog-management');
+// GET route for vlog management
+app.get('/vlog-management', authenticateUserMiddleware, async (req, res) => {
+  try {
+    // Fetch vlog content from the database
+    const vlog = await VlogContent.findOne().sort({ submittedAt: -1 });
+
+    // Render the vlog-management view and pass the vlog data
+    res.render('vlog-management', { vlog });
+  } catch (error) {
+    console.error('Error fetching vlog content:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
 });
+
+
 
 app.post('/submit-vlog', upload.single('media'), (req, res) => {
   const { title, description } = req.body;

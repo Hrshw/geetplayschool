@@ -6,7 +6,7 @@ const sessionMiddleware = session({
   saveUninitialized: true,
   cookie: {
     maxAge: 60 * 60 * 1000, // 1 hour in milliseconds
-    secure: true, // Set to true if using HTTPS
+    secure: false, // Set to true if using HTTPS
   },
 });
 

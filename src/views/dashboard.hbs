@@ -7,6 +7,7 @@
   <title>GeetPlay-Dashboard</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.min.js"></script> --}}
 </head>
 
 <body>
@@ -19,7 +20,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="/dashboard" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="../assets/images/logos/GEETPLAY-logo.png" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -489,6 +490,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="../assets/js/dashboard.js"></script>
+<!-- Include Socket.IO library -->
+
+<script src="/js/socket.io.min.js"></script>
 
   <script>
     // Fetch data from the server
@@ -540,55 +544,7 @@
     // Call the fetchData function to populate the chart
     fetchData();
 
-
-    function getNewAdmissionFormSubmissions() {
-  // Assuming you have a data source or API endpoint to fetch the new admissions
-  // You'll need to replace this with your actual implementation
-
-  // Fetch the data from your data source or API
-  const newAdmissions = fetch('/api/new-admissions')
-    .then(response => response.json())
-    .then(data => data.admissions)
-    .catch(error => {
-      console.error('Error fetching new admissions:', error);
-      return [];
-    });
-
-  return newAdmissions;
-}
-// Assuming you have a function named `getNewAdmissionFormSubmissions` that retrieves the new admission form submissions
-function updateNotification() {
-  const notificationElement = document.getElementById('notification');
-  const newAdmissions = getNewAdmissionFormSubmissions(); // Call your function to get the new admission form submissions
-
-  if (newAdmissions.length > 0) {
-    notificationElement.innerText = newAdmissions.length; // Update the notification count
-
-    // Create a tooltip with the admission form details
-    let tooltipText = "New admission form is submitted with:<br/>";
-    newAdmissions.forEach(admission => {
-      tooltipText += `Student Name: ${admission.studentName}<br/>`;
-      // Add more details if needed
-    });
-
-    // Set the tooltip as a data attribute
-    notificationElement.dataset.bsToggle = 'tooltip';
-    notificationElement.dataset.bsPlacement = 'bottom';
-    notificationElement.dataset.bsHtml = 'true';
-    notificationElement.dataset.bsTitle = tooltipText;
-
-    notificationElement.style.display = 'block'; // Show the notification
-  } else {
-    notificationElement.style.display = 'none'; // Hide the notification if there are no new admissions
-  }
-
-  // Initialize the Bootstrap tooltip
-  new bootstrap.Tooltip(notificationElement);
-}
-
-// Call the `updateNotification` function whenever you want to update the notification
-updateNotification();
-
+ 
 
   </script>
 

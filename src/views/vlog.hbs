@@ -106,7 +106,6 @@
 
                 <div class="album py-5 bg-light">
                     <div class="container">
-
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {{#if vlogContents.length}}
                             {{#each vlogContents}}
@@ -116,11 +115,15 @@
                                     <img class="bd-placeholder-img card-img-top" src="{{media}}" width="100%"
                                         height="100%">
                                     {{else if (checkVideoType media)}}
+                                    {{#if media}}
                                     <video class="card-img-top" controls width="100%" height="100%">
                                         <source src="{{media}}" type="video/mp4">
                                         <!-- Add more <source> tags for different video formats if needed -->
                                         Your browser does not support the video tag.
                                     </video>
+                                    {{else}}
+                                    <p>No media available.</p>
+                                    {{/if}}
                                     {{/if}}
 
                                     <div class="card-body">
@@ -142,8 +145,8 @@
                             {{else}}
                             <p>There is no vlog content right now.</p>
                             {{/if}}
-
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -193,10 +196,10 @@
                                 <img class="img-fluid rounded bg-light p-1" src="img/classes-3.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-4.png" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-5.png" alt="">
                             </div>
                             <div class="col-4">
                                 <img class="img-fluid rounded bg-light p-1" src="img/classes-6.jpg" alt="">
@@ -249,10 +252,8 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/contactFormvalidation.js"></script>
 </body>
 
 </html>
