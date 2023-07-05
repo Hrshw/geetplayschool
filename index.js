@@ -101,12 +101,6 @@ hbs.registerHelper('checkVideoType', function (media) {
   return media && (media.endsWith('.mp4') || media.endsWith('.avi') || media.endsWith('.mov'));
 });
 
-// Helper function to check if a string ends with a specified suffix
-hbs.registerHelper('endsWith', function (str, suffix) {
-  return str.endsWith(suffix);
-});
-
-
 
 
 // Define the storage and file type filter for multer

@@ -150,32 +150,27 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="card">
-        <!-- Check if media is an image -->
-        {{#if (endsWith vlog.media '.jpg')}}
-        <img src="{{ vlog.media }}" class="card-img-top" alt="Vlog Image" style="width: 320px; height: 180px;">
-        {{else}}
-        <!-- Check if media is a video -->
-        {{#if (endsWith vlog.media '.mp4')}}
-        <div class="card-body">
-          <video width="320" height="180" controls>
-            <source src="{{ vlog.media }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        {{else}}
-        <!-- Handle other media types or show a default image -->
-        <img src="/images/default-thumbnail.jpg" class="card-img-top" alt="Default Thumbnail"
-          style="width: 320px; height: 180px;">
-        {{/if}}
-        {{/if}}
+   <div class="card">
+  {{#if (checkImageType vlog.media)}}
+    <img src="{{ vlog.media }}" class="card-img-top" alt="Vlog Image">
+  {{else if (checkVideoType vlog.media)}}
+    <div class="card-body">
+      <video width="320" height="180" controls>
+        <source src="{{ vlog.media }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  {{else}}
+    <img src="/images/default-thumbnail.jpg" class="card-img-top" alt="Default Thumbnail">
+  {{/if}}
 
-        <div class="card-body">
-          <h5 class="card-title">{{ vlog.title }}</h5>
-          <p class="card-text">{{ vlog.description }}</p>
-          <p class="card-text"><small class="text-muted">Submitted on {{ formatDate vlog.submittedAt }}</small></p>
-        </div>
-      </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ vlog.title }}</h5>
+    <p class="card-text">{{ vlog.description }}</p>
+    <p class="card-text"><small class="text-muted">Submitted on {{ formatDate vlog.submittedAt }}</small></p>
+  </div>
+</div>
+
     </div>
   </div>
 </div>

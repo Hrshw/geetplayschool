@@ -544,7 +544,20 @@
     // Call the fetchData function to populate the chart
     fetchData();
 
- 
+  // Connect to the server using Socket.IO
+  const socket = io.connect('http://localhost:3030');
+
+  // Listen for the 'notification' event
+  socket.on('notification', (data) => {
+    // Update the notification count or display a notification
+    updateNotificationCount(data.message);
+  });
+
+  // Function to update the notification count
+  function updateNotificationCount(message) {
+    // Display the notification message in the UI
+    $('#notification').text(message);
+  }
 
   </script>
 
