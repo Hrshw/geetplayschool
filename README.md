@@ -1,6 +1,6 @@
 ## GeetPlaySchool Admin Dashboard 🏰✨
 
-![GeetPlaySchool](https://your-image-url.com)
+![GeetPlaySchool](https://geetplayschool.in/img/GEETPLAY-logo.png)
 
 Welcome to the Enchanted GeetPlaySchool Admin Dashboard, where magical adventures await! 🧙‍♂️ Unleash your admin powers and weave captivating tales as you navigate through this Node.js-powered dashboard. From posting enchanting vlogs to delving into admission form data, and crafting dynamic admin pages, the GeetPlaySchool Admin Dashboard lets you orchestrate a mystical experience for all!
 
