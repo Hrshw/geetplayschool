@@ -1,4 +1,4 @@
-## GeetPlaySchool Admin Dashboard 🏰✨
+## GeetPlaySchool 🏰✨
 
 ![GeetPlaySchool](https://geetplayschool.in/img/GEETPLAY-logo.png)
 
