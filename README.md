@@ -45,7 +45,7 @@ Geet Play School is a haven of wonder and knowledge for young minds. Here, the s
 
 🌟 Come, be a part of this magical journey! 🌟
 
-![GeetPlaySchool Logo](https://your-logo-image-url.com)
+![GeetPlaySchool Logo](https://geetplayschool.in/img/GEETPLAY-logo.png)
 
 ---
 
